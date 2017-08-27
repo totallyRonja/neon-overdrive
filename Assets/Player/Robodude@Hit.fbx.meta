@@ -1,0 +1,245 @@
+fileFormatVersion: 2
+guid: 9a88bd6b254a5634f852026ec823206c
+timeCreated: 1503659497
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Arm_L
+    100002: Arm_R
+    100004: Back_Cluster
+    100006: Back_Curve
+    100008: bottom
+    100010: CTRL_Antenna
+    100012: CTRL_Elbow_L
+    100014: CTRL_Elbow_R
+    100016: CTRL_Foot_L
+    100018: CTRL_Foot_R
+    100020: CTRL_Head
+    100022: CTRL_Knee_L
+    100024: CTRL_Knee_R
+    100026: CTRL_Root
+    100028: CTRL_Shoulder_L
+    100030: CTRL_Shoulder_R
+    100032: CTRL_Supermover
+    100034: CTRL_Upperbody
+    100036: Head
+    100038: Headbase
+    100040: IK_L_Antenna
+    100042: IK_L_Foot
+    100044: IK_L_Leg
+    100046: IK_R_Antenna
+    100048: IK_R_Foot
+    100050: IK_R_Leg
+    100052: IK_Spine
+    100054: L_Ankle
+    100056: L_Ant_Cluster
+    100058: L_Ant_Cluster2
+    100060: L_Antenna1
+    100062: L_Antenna2
+    100064: L_Antenna3
+    100066: L_Antenna4
+    100068: L_Antenna_Curve
+    100070: L_Clavicle
+    100072: L_Elbow
+    100074: L_Foot
+    100076: L_Hand
+    100078: L_Hip
+    100080: L_Knee
+    100082: L_Shoulder
+    100084: L_Wrist
+    100086: left
+    100088: Leg_L
+    100090: Leg_R
+    100092: Neck
+    100094: R_Ankle
+    100096: R_Ant_Cluster
+    100098: R_Ant_Cluster2
+    100100: R_Antenna1
+    100102: R_Antenna2
+    100104: R_Antenna3
+    100106: R_Antenna4
+    100108: R_Antenna_Curve
+    100110: R_Clavicle
+    100112: R_Elbow
+    100114: R_Foot
+    100116: R_Hand
+    100118: R_Hip
+    100120: R_Knee
+    100122: R_Shoulder
+    100124: R_Wrist
+    100126: Refcube
+    100128: Rig_Grp
+    100130: //RootNode
+    100132: Robodude_Mesh
+    100134: Root
+    100136: Spine1
+    100138: Spine2
+    100140: Spine3
+    100142: Spine4
+    100144: Torso
+    400000: Arm_L
+    400002: Arm_R
+    400004: Back_Cluster
+    400006: Back_Curve
+    400008: bottom
+    400010: CTRL_Antenna
+    400012: CTRL_Elbow_L
+    400014: CTRL_Elbow_R
+    400016: CTRL_Foot_L
+    400018: CTRL_Foot_R
+    400020: CTRL_Head
+    400022: CTRL_Knee_L
+    400024: CTRL_Knee_R
+    400026: CTRL_Root
+    400028: CTRL_Shoulder_L
+    400030: CTRL_Shoulder_R
+    400032: CTRL_Supermover
+    400034: CTRL_Upperbody
+    400036: Head
+    400038: Headbase
+    400040: IK_L_Antenna
+    400042: IK_L_Foot
+    400044: IK_L_Leg
+    400046: IK_R_Antenna
+    400048: IK_R_Foot
+    400050: IK_R_Leg
+    400052: IK_Spine
+    400054: L_Ankle
+    400056: L_Ant_Cluster
+    400058: L_Ant_Cluster2
+    400060: L_Antenna1
+    400062: L_Antenna2
+    400064: L_Antenna3
+    400066: L_Antenna4
+    400068: L_Antenna_Curve
+    400070: L_Clavicle
+    400072: L_Elbow
+    400074: L_Foot
+    400076: L_Hand
+    400078: L_Hip
+    400080: L_Knee
+    400082: L_Shoulder
+    400084: L_Wrist
+    400086: left
+    400088: Leg_L
+    400090: Leg_R
+    400092: Neck
+    400094: R_Ankle
+    400096: R_Ant_Cluster
+    400098: R_Ant_Cluster2
+    400100: R_Antenna1
+    400102: R_Antenna2
+    400104: R_Antenna3
+    400106: R_Antenna4
+    400108: R_Antenna_Curve
+    400110: R_Clavicle
+    400112: R_Elbow
+    400114: R_Foot
+    400116: R_Hand
+    400118: R_Hip
+    400120: R_Knee
+    400122: R_Shoulder
+    400124: R_Wrist
+    400126: Refcube
+    400128: Rig_Grp
+    400130: //RootNode
+    400132: Robodude_Mesh
+    400134: Root
+    400136: Spine1
+    400138: Spine2
+    400140: Spine3
+    400142: Spine4
+    400144: Torso
+    2000000: bottom
+    2000002: left
+    2300000: Refcube
+    3300000: Refcube
+    4300000: Arm_R
+    4300002: Arm_L
+    4300004: Leg_R
+    4300006: Leg_L
+    4300008: Torso
+    4300010: Refcube
+    7400000: Hit
+    9500000: //RootNode
+    13700000: Arm_L
+    13700002: Arm_R
+    13700004: Leg_L
+    13700006: Leg_R
+    13700008: Torso
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

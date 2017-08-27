@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Upper_body
+  m_Mask: 01000000010000000100000000000000000000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Robodude_Mesh
+    m_Weight: 0
+  - m_Path: Robodude_Mesh/Arm_R
+    m_Weight: 0
+  - m_Path: Robodude_Mesh/Arm_L
+    m_Weight: 0
+  - m_Path: Robodude_Mesh/Leg_R
+    m_Weight: 0
+  - m_Path: Robodude_Mesh/Leg_L
+    m_Weight: 0
+  - m_Path: Robodude_Mesh/Torso
+    m_Weight: 0
+  - m_Path: Root
+    m_Weight: 0
+  - m_Path: Root/Spine1
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck/Headbase
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck/Headbase/Head
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck/Headbase/Head/L_Antenna1
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck/Headbase/Head/L_Antenna1/L_Antenna2
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck/Headbase/Head/L_Antenna1/L_Antenna2/L_Antenna3
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck/Headbase/Head/L_Antenna1/L_Antenna2/L_Antenna3/L_Antenna4
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck/Headbase/Head/R_Antenna1
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck/Headbase/Head/R_Antenna1/R_Antenna2
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck/Headbase/Head/R_Antenna1/R_Antenna2/R_Antenna3
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/Neck/Headbase/Head/R_Antenna1/R_Antenna2/R_Antenna3/R_Antenna4
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/L_Clavicle
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/L_Clavicle/L_Shoulder
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/L_Clavicle/L_Shoulder/L_Elbow
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/L_Clavicle/L_Shoulder/L_Elbow/L_Wrist
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/L_Clavicle/L_Shoulder/L_Elbow/L_Wrist/L_Hand
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/R_Clavicle
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/R_Clavicle/R_Shoulder
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/R_Clavicle/R_Shoulder/R_Elbow
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/R_Clavicle/R_Shoulder/R_Elbow/R_Wrist
+    m_Weight: 1
+  - m_Path: Root/Spine1/Spine2/Spine3/Spine4/R_Clavicle/R_Shoulder/R_Elbow/R_Wrist/R_Hand
+    m_Weight: 1
+  - m_Path: Root/L_Hip
+    m_Weight: 0
+  - m_Path: Root/L_Hip/L_Knee
+    m_Weight: 0
+  - m_Path: Root/L_Hip/L_Knee/L_Ankle
+    m_Weight: 0
+  - m_Path: Root/L_Hip/L_Knee/L_Ankle/L_Foot
+    m_Weight: 0
+  - m_Path: Root/R_Hip
+    m_Weight: 0
+  - m_Path: Root/R_Hip/R_Knee
+    m_Weight: 0
+  - m_Path: Root/R_Hip/R_Knee/R_Ankle
+    m_Weight: 0
+  - m_Path: Root/R_Hip/R_Knee/R_Ankle/R_Foot
+    m_Weight: 0

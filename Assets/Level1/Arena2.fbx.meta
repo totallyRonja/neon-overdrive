@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 50ba9d64f3baa4d4687be722af88cb4c
+timeCreated: 1503681438
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: a1
+    100002: a2
+    100004: a3
+    100006: a4
+    100008: a5
+    100010: a6
+    100012: a7
+    100014: a8
+    100016: //RootNode
+    100018: arenaplates
+    100020: b1
+    100022: b2
+    100024: b3
+    100026: b4
+    100028: b5
+    100030: b6
+    100032: b7
+    100034: b8
+    100036: big
+    100038: body
+    100040: bumpor
+    100042: bumpplate
+    100044: noppel
+    100046: pinoeckel
+    100048: plate
+    100050: pusher
+    100052: screw1
+    100054: screw2
+    100056: small
+    100058: stummel
+    400000: a1
+    400002: a2
+    400004: a3
+    400006: a4
+    400008: a5
+    400010: a6
+    400012: a7
+    400014: a8
+    400016: //RootNode
+    400018: arenaplates
+    400020: b1
+    400022: b2
+    400024: b3
+    400026: b4
+    400028: b5
+    400030: b6
+    400032: b7
+    400034: b8
+    400036: big
+    400038: body
+    400040: bumpor
+    400042: bumpplate
+    400044: noppel
+    400046: pinoeckel
+    400048: plate
+    400050: pusher
+    400052: screw1
+    400054: screw2
+    400056: small
+    400058: stummel
+    2300000: a1
+    2300002: a2
+    2300004: a3
+    2300006: a4
+    2300008: a5
+    2300010: a6
+    2300012: a7
+    2300014: a8
+    2300016: b1
+    2300018: b2
+    2300020: b3
+    2300022: b4
+    2300024: b5
+    2300026: b6
+    2300028: b7
+    2300030: b8
+    2300032: body
+    2300034: bumpplate
+    2300036: noppel
+    2300038: pinoeckel
+    2300040: pusher
+    2300042: screw1
+    2300044: screw2
+    2300046: stummel
+    3300000: a1
+    3300002: a2
+    3300004: a3
+    3300006: a4
+    3300008: a5
+    3300010: a6
+    3300012: a7
+    3300014: a8
+    3300016: b1
+    3300018: b2
+    3300020: b3
+    3300022: b4
+    3300024: b5
+    3300026: b6
+    3300028: b7
+    3300030: b8
+    3300032: body
+    3300034: bumpplate
+    3300036: noppel
+    3300038: pinoeckel
+    3300040: pusher
+    3300042: screw1
+    3300044: screw2
+    3300046: stummel
+    4300000: bumpplate
+    4300002: pusher
+    4300004: pinoeckel
+    4300006: noppel
+    4300008: stummel
+    4300010: body
+    4300012: screw1
+    4300014: screw2
+    4300016: a1
+    4300018: a2
+    4300020: a3
+    4300022: a4
+    4300024: a5
+    4300026: a6
+    4300028: a7
+    4300030: a8
+    4300032: b1
+    4300034: b2
+    4300036: b3
+    4300038: b4
+    4300040: b5
+    4300042: b6
+    4300044: b7
+    4300046: b8
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
