@@ -5,36 +5,47 @@ using UnityEngine.UI;
 
 public class MenuTransition : MonoBehaviour {
 
-    public Button[] main;
-    public Button[] level;
 
-    public int startY;
-    public int levelY;
+    public Button[] startButtons;
+    public Button[] levelSelectButtons;
 
-    bool start = false;
+    public float startHeight;
+    public float levelSelectHeight;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public float transitionDuration;
+
+    float currentHeight = 0;
+
+    void Awake(){
+        currentHeight = startHeight;
+        transform.localPosition = new Vector3(0, startHeight, 0);
+    }
 	
-	public IEnumerator Transition()
-    {
-        foreach(Button b in start ? main : level)
-        {
-            b.interactable = true;
-        }
-        start = !start;
-        foreach (Button b in start ? main : level)
-        {
-            b.interactable = false;
+	public IEnumerator Transition() {
+        if(currentHeight == startHeight)
+            currentHeight = levelSelectHeight;
+        else if(currentHeight == levelSelectHeight)
+            currentHeight = startHeight;
+        else {
+            Debug.LogWarning("element has invalid height, resetting to start height.");
+            currentHeight = startHeight;
         }
 
-        float startTime = Time.time;
-        while (Time.time < startTime + 1)
-        {
-            yield return null;
-            transform.localPosition = Vector3.up * Mathf.Lerp(start?startY:levelY, start?levelY:startY, Time.time - startTime);
+        //activate the buttons of the menu that's transitioned to, deactivate the others
+        foreach(Button b in startButtons) {
+            b.interactable = currentHeight == startHeight;
         }
+        foreach (Button b in levelSelectButtons) {
+            b.interactable = currentHeight == levelSelectHeight;
+        }
+
+        //interpolate menu position
+        float startTime = Time.time;
+        float transitionStartHeight = transform.localPosition.y;
+        while (Time.time < startTime + transitionDuration) {
+            yield return null;
+            transform.localPosition = new Vector3(0, Mathf.Lerp(transitionStartHeight, currentHeight, (Time.time - startTime)/transitionDuration), 0);
+        }
+        transform.localPosition = new Vector3(0, currentHeight, 0);
     }
 }

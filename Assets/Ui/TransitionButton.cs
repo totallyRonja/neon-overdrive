@@ -4,16 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TransitionButton : MonoBehaviour {
+    public MenuTransition transition;
 
-    public MenuTransition trans;
-
-	// Use this for initialization
-	void Start () {
-        GetComponent<Button>().onClick.AddListener(DoTransition);
-	}
-
-    void DoTransition()
+    public void Transition()
     {
-        StartCoroutine(trans.Transition());
+        StartCoroutine(transition.Transition());
     }
 }
