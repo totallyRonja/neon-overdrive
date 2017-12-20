@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class Screenshake : MonoBehaviour {
 
+    //Singleton instance
     public static Screenshake current;
 
-    Vector3 basePosition;
-    public bool shaking = false;
     public float intensity = 1;
 
-	// Use this for initialization
+    [HideInInspector] public bool shaking = false;
+
+    Vector3 basePosition;
+
 	void Awake () {
         current = this;
         basePosition = transform.position;
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
         if (shaking)
         {
-            print(Time.timeScale);
             transform.position = basePosition + Random.insideUnitSphere * intensity * Time.timeScale;
             shaking = false;
         } else
@@ -39,7 +39,7 @@ public class Screenshake : MonoBehaviour {
         float startTime = Time.time;
         while (Time.time < startTime + duration)
         {
-            transform.position = basePosition + Random.insideUnitSphere * intensity * Time.timeScale;
+            shaking = true;
             yield return null;
         }
         transform.position = basePosition;

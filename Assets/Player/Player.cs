@@ -4,67 +4,63 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[SelectionBase]
 public class Player : MonoBehaviour {
 
+    [SerializeField] TeamProperty team;
+    [SerializeField] float gravity;
+    [SerializeField] float speed;
+    [SerializeField] GameObject bullet;
+    [SerializeField] float chargeSpeed;
+    [SerializeField] float damage;
+    [SerializeField] Animator anim;
 
-    public PlayerTeam team;
-    public float gravity;
-    public float speed;
-    public GameObject bullet;
-    public Material cyanMaterial;
-    public Material magentaMaterial;
-    public float chargeSpeed;
-    public Player otherPlayer;
-    public float damage;
-    public Animator anim;
-
-    [HideInInspector]public UnityEvent healthUpdate;
-
-    [HideInInspector]public float health = 100;
+    [HideInInspector]public HealthUpdate healthUpdate = new HealthUpdate();
+    
+    [HideInInspector] public float health = 100;
     CharacterController controller;
     float fallSpeed;
     Vector3 direction = Vector3.forward;
     float shooting = 0;
     Transform shotInProgress;
+    Transform opponent;
     Bullet shotInProgressBullet;
 
 
-    // Use this for initialization
     void Awake () {
         controller = GetComponent<CharacterController>();
-
-       // Time.timeScale = 0.1f;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        string vertical = "", horizontal = "", shoot = "";
-        if(team == PlayerTeam.CYAN)
-        {
-            vertical = "Vertical_Cyan";
-            horizontal = "Horizontal_Cyan";
-            shoot = "Fire_Cyan";
-        } else if(team == PlayerTeam.MAGENTA)
-        {
-            vertical = "Vertical_Magenta";
-            horizontal = "Horizontal_Magenta";
-            shoot = "Fire_Magenta";
-        } else
-        {
-            Debug.Log("Player without team needs help");
+
+    void Start(){
+        //find the opponent to home in later
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length;i++){
+            if (players[i] != gameObject){
+                opponent = players[i].transform;
+                break;
+            }
         }
+    }
 
-        Move(horizontal, vertical);
-        Shoot(shoot);
+    void OnEnable(){
+        if (!team) {
+            Debug.Log("Player without team needs help");
+            enabled = false;
+        }
+    }
+	
+	void Update () {
+        Move();
+        Shoot();
 	}
 
-    void Move(string horizontal, string vertical)
+    void Move()
     {
         fallSpeed += gravity * Time.deltaTime;
         Vector3 velocity = Vector3.down * fallSpeed;
 
-        velocity.x = Input.GetAxis(horizontal) * speed / (1 + Mathf.Min(shooting, 5f)*0.5f);
-        velocity.z = Input.GetAxis(vertical) * speed / (1 + Mathf.Min(shooting, 5f) * 0.5f);
+        velocity.x = Input.GetAxis(team.horizontalInput) * speed / (1 + Mathf.Min(shooting, 5f)*0.5f);
+        velocity.z = Input.GetAxis(team.verticalInput) * speed / (1 + Mathf.Min(shooting, 5f) * 0.5f);
 
         controller.Move(velocity * Time.deltaTime);
 
@@ -80,11 +76,12 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void Shoot(string shoot)
+    void Shoot()
     {
         if (direction == Vector3.zero)
-            return;
-        if (Input.GetButtonDown(shoot))
+            direction = transform.forward;
+        
+        if (Input.GetButtonDown(team.shotInput))
         {
             if (shotInProgress)
             {
@@ -93,10 +90,10 @@ public class Player : MonoBehaviour {
             shotInProgress = Instantiate(bullet, transform.position + direction, Quaternion.identity).transform;
             shotInProgressBullet = shotInProgress.GetComponent<Bullet>();
             shotInProgressBullet.controller.enabled = false;
-            shotInProgressBullet.team = team;
-            shotInProgressBullet.goal = otherPlayer;
-            shotInProgress.GetComponentInChildren<Renderer>().material = team == PlayerTeam.CYAN ? cyanMaterial:magentaMaterial;
-            shotInProgress.GetComponentInChildren<Light>().color = team == PlayerTeam.CYAN ? new Color(0, 1, 1) : new Color(1, 0, 1);
+            shotInProgressBullet.team = team.team;
+            shotInProgressBullet.goal = opponent;
+            shotInProgress.GetComponentInChildren<Renderer>().material = team.bulletMat;
+            shotInProgress.GetComponentInChildren<Light>().color = team.teamColor;
 
             anim.SetBool("Shooting", true);
         }
@@ -111,8 +108,7 @@ public class Player : MonoBehaviour {
                 Screenshake.current.shaking = true;
             }
 
-
-            if (!Input.GetButton(shoot) || shooting > 10f)
+            if (!Input.GetButton(team.shotInput) || shooting > 10f)
             {
                 anim.SetFloat("ShotIntensity", shooting / 5);
                 anim.SetBool("Shooting", false);
@@ -144,10 +140,10 @@ public class Player : MonoBehaviour {
             anim.SetTrigger("Hit");
         }
         health -= damage;
-        healthUpdate.Invoke();
+        healthUpdate.Invoke(team.team, health);
     }
 }
 
-public enum PlayerTeam{
-    CYAN, MAGENTA, NEITHER
+public class HealthUpdate : UnityEvent<PlayerTeam, float> {
+
 }

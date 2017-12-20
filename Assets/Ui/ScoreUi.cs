@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ScoreUi : MonoBehaviour {
 
-    public Player cyan;
-    public Player magenta;
+    public Player cyanPlayer;
+    public Player magentaPlayer;
 
     public Slider cyanSlider;
     public Slider cyanBackgroundSlider;
@@ -21,18 +21,17 @@ public class ScoreUi : MonoBehaviour {
 
     float time = 60;
 
-    Coroutine magentaRoutine;
-    Coroutine cyanRoutine;
+    Coroutine magentaFadingRoutine;
+    Coroutine cyanFadingRoutine;
 
 	// Use this for initialization
 	void Start () {
-        cyan.healthUpdate.AddListener(UpdateCyan);
-        magenta.healthUpdate.AddListener(UpdateMagenta);
-        UpdateCyan();
-        UpdateMagenta();
+        cyanPlayer.healthUpdate.AddListener(UpdateSlider);
+        magentaPlayer.healthUpdate.AddListener(UpdateSlider);
+        
+        UpdateSlider(PlayerTeam.CYAN, 100);
     }
 	
-	// Update is called once per frame
 	void Update () {
         time -= Time.deltaTime;
 
@@ -40,14 +39,11 @@ public class ScoreUi : MonoBehaviour {
         {
             time = 0;
             
-            if(cyan.health > magenta.health)
-            {
+            if(cyanPlayer.health > magentaPlayer.health) {
                 win.Win(PlayerTeam.CYAN);
-            } else if(magenta.health > cyan.health)
-            {
+            } else if(magentaPlayer.health > cyanPlayer.health) {
                 win.Win(PlayerTeam.MAGENTA);
-            } else
-            {
+            } else {
                 win.Win(PlayerTeam.NEITHER);
             }
         }
@@ -55,29 +51,19 @@ public class ScoreUi : MonoBehaviour {
         countdown.text = Mathf.Floor(time).ToString();
 	}
 
-    void UpdateCyan()
+    void UpdateSlider(PlayerTeam team, float health)
     {
-        cyanSlider.value = cyan.health;
-        if(cyanRoutine != null)
-            StopCoroutine(cyanRoutine);
-        cyanRoutine = StartCoroutine(takeHealth(cyanBackgroundSlider, cyan.health));
-        if (cyan.health <= 0) win.Win(PlayerTeam.MAGENTA);
+        cyanSlider.value = health;
+        if(cyanFadingRoutine != null)
+            StopCoroutine(cyanFadingRoutine);
+        cyanFadingRoutine = StartCoroutine(fadeHealth(cyanBackgroundSlider, health));
+        if (health <= 0) win.Win(team);
     }
 
-    void UpdateMagenta()
-    {
-        magentaSlider.value = magenta.health;
-        if(magentaRoutine != null)
-            StopCoroutine(magentaRoutine);
-        magentaRoutine = StartCoroutine(takeHealth(magentaBackgroundSlider, magenta.health));
-        if (magenta.health <= 0) win.Win(PlayerTeam.CYAN);
-    }
-
-    IEnumerator takeHealth(Slider healthbar, float health)
+    IEnumerator fadeHealth(Slider healthbar, float health)
     {
         yield return new WaitForSeconds(1f);
-        while(healthbar.value > health)
-        {
+        while(healthbar.value > health) {
             healthbar.value = Mathf.MoveTowards(healthbar.value, health, Time.deltaTime * backgroundSliderDecaySpeed);
             yield return null;
         }

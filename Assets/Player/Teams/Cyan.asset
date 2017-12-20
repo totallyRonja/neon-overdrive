@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd426bf2dd7df7468dd89d003f36a69, type: 3}
+  m_Name: Cyan
+  m_EditorClassIdentifier: 
+  team: 0
+  bulletMat: {fileID: 2100000, guid: ef5e75246e6f83f47afcda5beea5348f, type: 2}
+  teamColor: {r: 0, g: 1, b: 1, a: 1}
+  horizontalInput: Horizontal_Cyan
+  verticalInput: Vertical_Cyan
+  shotInput: Fire_Cyan

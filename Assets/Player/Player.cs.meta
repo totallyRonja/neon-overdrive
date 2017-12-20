@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 3801a06fc3dbc7541be4c6e085c6da55
-timeCreated: 1503397405
+timeCreated: 1513698799
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bullet: {instanceID: 0}
+  - cyanMaterial: {fileID: 2100000, guid: 08c58013331484f4a9ea8a9e3f3befef, type: 2}
+  - magentaMaterial: {instanceID: 0}
+  - otherPlayer: {instanceID: 0}
+  - anim: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
