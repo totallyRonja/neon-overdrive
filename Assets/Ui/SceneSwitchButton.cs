@@ -10,6 +10,7 @@ public class SceneSwitchButton : MonoBehaviour {
 
     public void LoadScene () {
         Time.timeScale = 1;
-        SceneManager.LoadScene(sceneToLoad);
+		string scene = sceneToLoad.SceneName;
+		SceneManager.LoadScene(string.IsNullOrEmpty(scene) ? SceneManager.GetActiveScene().name : scene);
 	}
 }

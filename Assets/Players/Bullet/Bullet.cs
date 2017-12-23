@@ -13,15 +13,14 @@ public class Bullet : MonoBehaviour
     public float baseControllerRadius = 0.25f;
     public float steering = 1;
 
-    public GameObject particles;
+	public HitParticles particles;
 
     [HideInInspector] public float damage = 1;
-    [HideInInspector] public PlayerTeam team;
+	[HideInInspector] public TeamProperty team;
     [HideInInspector] public Transform goal;
     [HideInInspector] public Vector3 direction;
     [HideInInspector] public CharacterController controller;
 
-    //int reflections = 0;
     float size = 0;
     bool alive = true;
 
@@ -43,7 +42,7 @@ public class Bullet : MonoBehaviour
 
             if (size > 2 && alive)
             {
-                GridDistortion.current.Distort(team == PlayerTeam.CYAN ? 0 : 1, transform.position, size - 2);
+                GridDistortion.current.Distort(team.distortionIndex, transform.position, size - 2);
             }
         }
     }
@@ -65,10 +64,6 @@ public class Bullet : MonoBehaviour
                 Kill();
                 return;
             }
-            if (otherPlayer == this)
-            {
-                return;
-            }
 
             otherPlayer.Hit(damage);
             if(damage > 20){
@@ -76,10 +71,10 @@ public class Bullet : MonoBehaviour
             }
             if (size > 2)
             {
-                GridDistortion.current.Distort(team == PlayerTeam.CYAN ? 0 : 1, hit.transform.position, size - 2);
-                GridDistortion.current.Expand(team == PlayerTeam.CYAN ? 0 : 1, (size - 2) * -10, 250);
+                GridDistortion.current.Distort(team.distortionIndex, hit.transform.position, size - 2);
+				GridDistortion.current.Expand(team.distortionIndex, (size - 2) * -10, 250);
 
-                if (particles) Instantiate(particles, hit.transform.position, Quaternion.identity).GetComponent<HitParticles>().InitSystem(team, (int)(Mathf.Pow(size , 2.5f)*2));
+				if (particles) (Instantiate(particles, hit.transform.position, Quaternion.identity) as HitParticles).InitSystem(team.team, (int)(Mathf.Pow(size , 2.5f)*2));
             }
             Kill();
         }

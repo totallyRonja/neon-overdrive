@@ -15,9 +15,12 @@ public class ScoreUi : MonoBehaviour {
 
     public Text countdown;
 
-    public WinUi win;
+    public PauseUi pause;
 
+	public float backgroundSliderDecayDelay = 1;
     public float backgroundSliderDecaySpeed = 10;
+
+	public float maximumMatchTime = 60;
 
     float time = 60;
 
@@ -29,7 +32,10 @@ public class ScoreUi : MonoBehaviour {
         cyanPlayer.healthUpdate.AddListener(UpdateSlider);
         magentaPlayer.healthUpdate.AddListener(UpdateSlider);
         
-        UpdateSlider(PlayerTeam.CYAN, 100);
+		UpdateSlider(cyanPlayer.team, 100);
+		UpdateSlider(magentaPlayer.team, 100);
+
+		time = maximumMatchTime;
     }
 	
 	void Update () {
@@ -40,31 +46,49 @@ public class ScoreUi : MonoBehaviour {
             time = 0;
             
             if(cyanPlayer.health > magentaPlayer.health) {
-                win.Win(PlayerTeam.CYAN);
+				pause.Win(cyanPlayer.team);
             } else if(magentaPlayer.health > cyanPlayer.health) {
-                win.Win(PlayerTeam.MAGENTA);
+				pause.Win(magentaPlayer.team);
             } else {
-                win.Win(PlayerTeam.NEITHER);
+				pause.Win(null);
             }
         }
 
         countdown.text = Mathf.Floor(time).ToString();
 	}
 
-    void UpdateSlider(PlayerTeam team, float health)
+	void UpdateSlider(TeamProperty team, float health)
     {
-        cyanSlider.value = health;
-        if(cyanFadingRoutine != null)
-            StopCoroutine(cyanFadingRoutine);
-        cyanFadingRoutine = StartCoroutine(fadeHealth(cyanBackgroundSlider, health));
-        if (health <= 0) win.Win(team);
+		Slider teamSlider = null;
+		switch (team.team) {
+		case PlayerTeam.CYAN:
+			teamSlider = cyanSlider;
+			StartFadingRoutine (ref cyanFadingRoutine, ref cyanBackgroundSlider, health);
+			break;
+		case PlayerTeam.MAGENTA:
+			teamSlider = magentaSlider;
+			StartFadingRoutine (ref magentaFadingRoutine, ref magentaBackgroundSlider, health);
+			break;
+		default:
+			Debug.Log ("Can't update player!");
+			return;
+		}
+
+		teamSlider.value = health;
+		if (health <= 0) pause.Win(team);
     }
+
+	void StartFadingRoutine(ref Coroutine teamRoutine, ref Slider teamSlider, float health){
+		if(teamRoutine != null)
+			StopCoroutine(teamRoutine);
+		teamRoutine = StartCoroutine(fadeHealth(teamSlider, health));
+	}
 
     IEnumerator fadeHealth(Slider healthbar, float health)
     {
-        yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(backgroundSliderDecayDelay);
         while(healthbar.value > health) {
-            healthbar.value = Mathf.MoveTowards(healthbar.value, health, Time.deltaTime * backgroundSliderDecaySpeed);
+			healthbar.value = Mathf.MoveTowards(healthbar.value, health, Time.unscaledDeltaTime * backgroundSliderDecaySpeed);
             yield return null;
         }
     }

@@ -1,4 +1,6 @@
-﻿Shader "Custom/ImageGrid" {
+﻿// Upgrade NOTE: upgraded instancing buffer 'Props' to new syntax.
+
+Shader "Custom/ImageGrid" {
 	Properties {
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_GridTex ("Grid (RGB)", 2D) = "white" {}
@@ -25,8 +27,8 @@
 
 		uniform float4 origin0 = float4(0, 0, 0, 0);
 		uniform float4 origin1 = float4(0, 0, 0, 0);
-		uniform float radius0 = 0;
-		uniform float radius1 = 0;
+		uniform float distortionPoint0 = 0;
+		uniform float distortionPoint1 = 0;
 
 		struct Input {
 			float2 uv_MainTex;
@@ -34,42 +36,30 @@
 			float3 worldPos;
 		};
 
-		half _Glossiness;
-		half _Metallic;
-
 		half _Repetition;
 		half _Intensity;
 		half _Speed;
 
 		float4 _GridScale;
 
-		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-		// #pragma instancing_options assumeuniformscaling
-		UNITY_INSTANCING_CBUFFER_START(Props)
-			// put more per-instance properties here
-		UNITY_INSTANCING_CBUFFER_END
-
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			float3 toPoint0 = origin0 - IN.worldPos;
 			float3 toPoint1 = origin1 - IN.worldPos;
 
-			float3 point1offset = normalize(toPoint0) * radius0 / length(toPoint0);
-			float3 point2offset = normalize(toPoint1) * radius1 / length(toPoint1);
+			float3 point1offset = normalize(toPoint0) * distortionPoint0 / length(toPoint0);
+			float3 point2offset = normalize(toPoint1) * distortionPoint1 / length(toPoint1);
 
 			float2 image_uv = IN.uv_MainTex + (point1offset + point2offset) * _GridScale.xy;
 			float2 grid_uv = IN.uv_GridTex + point1offset + point2offset;
 
-			float movingBack = sin(clamp(fmod(_Time.y * _Speed + grid_uv.y, _Repetition), 0, 3.14)) * _Intensity;
+			float lineIntensity = sin(clamp(fmod(_Time.y * _Speed + grid_uv.y, _Repetition), 0, 3.14)) * _Intensity;
 
 			// Albedo comes from a texture tinted by color
 			fixed4 image = tex2D (_MainTex, image_uv);
-			fixed4 c = lerp(tex2D(_GridTex, grid_uv), image, image.b);
+			fixed4 c = lerp(tex2D(_GridTex, grid_uv), image, max(max(image.r,image.g), image.b));
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables
-			o.Emission = c.rgb * movingBack * (1-image.b);
-			o.Metallic = _Metallic;
-			o.Smoothness = _Glossiness;
+			o.Emission = c.rgb * lineIntensity * (1-image.b);
 			o.Alpha = c.a;
 		}
 		ENDCG

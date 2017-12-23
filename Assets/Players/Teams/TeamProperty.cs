@@ -7,6 +7,7 @@ public class TeamProperty : ScriptableObject {
     public PlayerTeam team;
     public Material bulletMat;
     public Color teamColor;
+	public int distortionIndex;
 
     [Header("Controls")]
     public string horizontalInput;

@@ -16,7 +16,7 @@ public class MenuTransition : MonoBehaviour {
 
     float currentHeight = 0;
 
-    void Awake(){
+    void Start(){
         currentHeight = startHeight;
         transform.localPosition = new Vector3(0, startHeight, 0);
     }

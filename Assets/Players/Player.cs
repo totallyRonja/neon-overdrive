@@ -7,7 +7,7 @@ using UnityEngine.Events;
 [SelectionBase]
 public class Player : MonoBehaviour {
 
-    [SerializeField] TeamProperty team;
+    [SerializeField] public TeamProperty team;
     [SerializeField] float gravity;
     [SerializeField] float speed;
     [SerializeField] GameObject bullet;
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
     [SerializeField] float damage;
     [SerializeField] Animator anim;
 
-    [HideInInspector]public HealthUpdate healthUpdate = new HealthUpdate();
+    [HideInInspector] public HealthUpdate healthUpdate = new HealthUpdate();
     
     [HideInInspector] public float health = 100;
     CharacterController controller;
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour {
             shotInProgress = Instantiate(bullet, transform.position + direction, Quaternion.identity).transform;
             shotInProgressBullet = shotInProgress.GetComponent<Bullet>();
             shotInProgressBullet.controller.enabled = false;
-            shotInProgressBullet.team = team.team;
+            shotInProgressBullet.team = team;
             shotInProgressBullet.goal = opponent;
             shotInProgress.GetComponentInChildren<Renderer>().material = team.bulletMat;
             shotInProgress.GetComponentInChildren<Light>().color = team.teamColor;
@@ -140,10 +140,10 @@ public class Player : MonoBehaviour {
             anim.SetTrigger("Hit");
         }
         health -= damage;
-        healthUpdate.Invoke(team.team, health);
+        healthUpdate.Invoke(team, health);
     }
 }
 
-public class HealthUpdate : UnityEvent<PlayerTeam, float> {
+public class HealthUpdate : UnityEvent<TeamProperty, float> {
 
 }

@@ -24,7 +24,7 @@ public class GridDistortion : MonoBehaviour
         {
             //set the shader values
             gridMat.SetFloat("radius" + i, radius[i]);
-            gridMat.SetVector("origin" + i, position[i]);
+			gridMat.SetVector("distortionPoint" + i, position[i]);
 
             //deflate the points
             radius[i] = Mathf.MoveTowards(radius[i], 0, Time.deltaTime *100);

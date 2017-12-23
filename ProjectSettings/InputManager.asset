@@ -13,9 +13,9 @@ InputManager:
     positiveButton: right
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 3
-    dead: 0.1
-    sensitivity: 4
+    gravity: 1
+    dead: 0.5
+    sensitivity: 2
     snap: 0
     invert: 0
     type: 2
@@ -30,7 +30,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
-    dead: 0.1
+    dead: 0.33
     sensitivity: 4
     snap: 0
     invert: 0
@@ -46,7 +46,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
-    dead: 0.1
+    dead: 0.33
     sensitivity: 4
     snap: 0
     invert: 0
@@ -77,9 +77,9 @@ InputManager:
     positiveButton: up
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 3
-    dead: 0.1
-    sensitivity: 4
+    gravity: 1
+    dead: 0.5
+    sensitivity: 2
     snap: 0
     invert: 1
     type: 2
@@ -202,7 +202,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: escape
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -218,7 +218,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: joystick button 1
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
@@ -237,9 +237,9 @@ InputManager:
     positiveButton: d
     altNegativeButton: left
     altPositiveButton: right
-    gravity: 0
+    gravity: 3
     dead: 0
-    sensitivity: 0.1
+    sensitivity: 4
     snap: 0
     invert: 0
     type: 0
@@ -253,9 +253,9 @@ InputManager:
     positiveButton: d
     altNegativeButton: left
     altPositiveButton: right
-    gravity: 0
-    dead: 0
-    sensitivity: 0.1
+    gravity: 3
+    dead: 0.5
+    sensitivity: 4
     snap: 0
     invert: 0
     type: 2
@@ -285,11 +285,11 @@ InputManager:
     positiveButton: w
     altNegativeButton: down
     altPositiveButton: up
-    gravity: 0
-    dead: 0
-    sensitivity: 0.1
+    gravity: 3
+    dead: 0.5
+    sensitivity: 4
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 1
     joyNum: 0
