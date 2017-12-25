@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -566,7 +566,7 @@ Prefab:
     - target: {fileID: 224599555409797510, guid: bc2c9c69c63c53946a8d3ae0ac9aab39,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.553
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224599555409797510, guid: bc2c9c69c63c53946a8d3ae0ac9aab39,
         type: 2}
@@ -592,16 +592,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114110685530214110, guid: bc2c9c69c63c53946a8d3ae0ac9aab39,
-        type: 2}
-      propertyPath: pauseTextColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114110685530214110, guid: bc2c9c69c63c53946a8d3ae0ac9aab39,
-        type: 2}
-      propertyPath: pauseTextColor.g
-      value: 0.866
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc2c9c69c63c53946a8d3ae0ac9aab39, type: 2}

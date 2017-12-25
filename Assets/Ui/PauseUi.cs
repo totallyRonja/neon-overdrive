@@ -14,7 +14,7 @@ public class PauseUi : MonoBehaviour {
 
     public Button[] buttons;
 
-	[HideInInspector] public bool gameOver = false;
+	[HideInInspector] public bool gameActive = true;
 
 	Graphic[] graphicElements;
 
@@ -31,7 +31,7 @@ public class PauseUi : MonoBehaviour {
 	}
 
 	void Update(){
-		if (!gameOver && Input.GetButtonDown ("Cancel")) {
+		if (gameActive && Input.GetButtonDown ("Cancel")) {
 			SetPaused (!paused);
 		}
 	}
@@ -59,7 +59,7 @@ public class PauseUi : MonoBehaviour {
 	public void Win(TeamProperty team)
     {
 		SetPaused (true);
-		gameOver = true;
+		gameActive = false;
 
 		if (team == null) {
 			textComponent.text = drawText;

@@ -17,7 +17,7 @@ public class Startup : MonoBehaviour {
 		float startTime = Time.realtimeSinceStartup;
 		
         Time.timeScale = 0;
-		pauseUI.gameOver = true;
+		pauseUI.gameActive = false;
         text.text = ("<color=#" + (Random.value > 0.5f ? "F0F" : "0FF") + ">") + (secondsLeft > 0 ? "" + secondsLeft : "GO") + "</color>";
 		while (Time.realtimeSinceStartup < startTime + 1)
         {
@@ -27,7 +27,7 @@ public class Startup : MonoBehaviour {
         if (secondsLeft <= 0)
         {
             Time.timeScale = 1;
-			pauseUI.gameOver = false;
+			pauseUI.gameActive = true;
             gameObject.SetActive(false);
         }
         else
